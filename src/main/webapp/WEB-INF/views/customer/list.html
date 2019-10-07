@@ -2,24 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="#{list_title}"> </title>
 </head>
 <body>
-<a href="/create-customer">Create new customer</a>
-<h1>Customers</h1>
+<a href="/create-customer" th:text="#{create}"> </a>
+<h1 th:text="#{list_title}"> </h1>
+Language: <a href="?lang=en">English</a> | <a href="?lang=vn">Vietnamese</a>
 <table border="1">
     <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th th:text="#{first_name}"> </th>
+        <th th:text="#{last_name}"> </th>
+        <th th:text="#{edit}"> </th>
+        <th th:text="#{delete}"> </th>
     </tr>
     <th:block th:each="customer : ${customers}">
         <tr>
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
-            <td><a th:href="@{/edit-customer/__${customer.id}__ }">Edit</a></td>
-            <td><a th:href="@{/delete-customer/__${customer.id}__ }">Delete</a></td>
+            <td><a th:href="@{/edit-customer/__${customer.id}__ }" th:text="#{edit}"> </a></td>
+            <td><a th:href="@{/delete-customer/__${customer.id}__ }" th:text="#{delete}"> </a></td>
         </tr>
     </th:block>
 </table>

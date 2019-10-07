@@ -2,29 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create customer</title>
+    <title th:text="#{create}"> </title>
 </head>
 <body>
-<h1>Create customer</h1>
+<h1 th:text="#{create}"></h1>
 <p>
-    <a href="/customers">Customer list</a>
+    <a href="/customers" th:text="#{customer_list}"></a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/create-customer}" th:object="${customer}" method="post">
+<form th:action="@{/create-customer}" th:object="${customer}" method="post" >
     <table>
         <tr>
-            <td>First name:</td>
+            <td th:text="#{first_name}"></td>
             <td><input type="text" th:field="*{firstName}"/></td>
         </tr>
         <tr>
-            <td>Last name:</td>
+            <td th:text="#{last_name}"> </td>
             <td><input type="text" th:field="*{lastName}"/></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Create customer"></td>
+            <td><input type="submit" th:value="#{create}"></td>
         </tr>
     </table>
 </form>
